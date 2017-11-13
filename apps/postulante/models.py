@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 class Postulante(models.Model):
-	nombre=models.CharField(max_length=50,blank=False)
+	nombre=models.CharField(max_length=50,blank=True)
 	apellidos=models.CharField(max_length=70)
 	cedula=models.IntegerField(default=0)
 	sexo=models.CharField(max_length=1,default="")
@@ -32,7 +32,7 @@ class Educacion(models.Model):
 
 class Direccion(models.Model):
 	postulante=models.ForeignKey(Postulante,blank=True,null=True)
-	estado=models.CharField(max_length=200)
+	estado=models.CharField(max_length=200,blank=True)
 	municipio=models.CharField(max_length=200)
 	parroquia=models.CharField(max_length=200)
 	direccion=models.CharField(max_length=200)

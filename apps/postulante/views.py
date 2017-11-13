@@ -420,7 +420,8 @@ class ExamenAdminCreate(UpdateView):
 			
 		examen.save()
 		obj=Examen.objects.filter(id=id_examen).update(realizado="SI",puntuacion=puntaje)
-		messages.info(request,puntaje)		
+
+		messages.info(request,"Su puntaje fue"+ " "+ str(puntaje))		
 		return HttpResponseRedirect(self.get_success_url())
 			
 		
